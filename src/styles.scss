@@ -1,0 +1,122 @@
+@use '@angular/material' as mat;
+
+:root {
+  // -- Dark Gray & Cyan Theme --
+  --theme-dark-gray: #1a1a1a;
+  --theme-medium-gray: #2d2d2d;
+  --theme-light-gray: #404040;
+  --theme-white: #ffffff;
+  --theme-charcoal: #333333;
+  --theme-cyan: #00bcd4;
+  --theme-cyan-light: #4dd0e1;
+  --theme-cyan-dark: #0097a7;
+  --theme-text-primary: #333333;
+  --theme-text-secondary: #666666;
+  --theme-border: #e0e0e0;
+}
+
+html {
+  height: 100%;
+  @include mat.theme((
+    color: (
+      primary: mat.$green-palette,
+      tertiary: mat.$cyan-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+
+  // Override Material system tokens with dark gray theme
+  --mat-sys-surface-dim: #1a1a1a;
+  --mat-sys-surface: #2d2d2d;
+  --mat-sys-surface-container: #404040;
+  --mat-sys-surface-container-low: #262626;
+  --mat-sys-surface-container-high: #595959;
+  --mat-sys-surface-container-highest: #737373;
+  --mat-sys-surface-bright: #595959;
+  --mat-sys-surface-variant: #404040;
+
+  --mat-sys-primary: #00bcd4;
+  --mat-sys-on-primary: #ffffff;
+  --mat-sys-primary-container: #ffffff;
+  --mat-sys-on-primary-container: #333333;
+
+  --mat-sys-secondary: #4dd0e1;
+  --mat-sys-on-secondary: #1a1a1a;
+  --mat-sys-secondary-container: #2d2d2d;
+  --mat-sys-on-secondary-container: #ffffff;
+
+  --mat-sys-tertiary: #0097a7;
+  --mat-sys-on-tertiary: #ffffff;
+  --mat-sys-tertiary-container: #ffffff;
+  --mat-sys-on-tertiary-container: #1a1a1a;
+
+  --mat-sys-on-surface: #333333;
+  --mat-sys-on-surface-variant: #666666;
+  --mat-sys-inverse-surface: #ffffff;
+  --mat-sys-inverse-on-surface: #333333;
+  --mat-sys-inverse-primary: #00bcd4;
+
+  --mat-sys-outline: #e0e0e0;
+  --mat-sys-outline-variant: #404040;
+
+  --mat-sys-error: #f44336;
+  --mat-sys-on-error: #ffffff;
+  --mat-sys-error-container: #ffebee;
+  --mat-sys-on-error-container: #b71c1c;
+
+  --mat-sys-background: #1a1a1a;
+  --mat-sys-on-background: #ffffff;
+
+  --mat-sys-shadow: rgba(0, 0, 0, 0.3);
+  --mat-sys-scrim: rgba(0, 0, 0, 0.6);
+}
+
+body {
+  color-scheme: dark;
+  background: var(--theme-dark-gray);
+  color: var(--theme-text-primary);
+  font: var(--mat-sys-body-medium);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  letter-spacing: 0.02em;
+}
+
+// Snackbar styling
+.mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-color: #404040;
+  --mdc-snackbar-supporting-text-color: #ffffff;
+  --mat-snack-bar-button-color: #00bcd4;
+}
+
+// Tooltip styling
+.mat-mdc-tooltip {
+  --mdc-plain-tooltip-container-color: #404040;
+  --mdc-plain-tooltip-supporting-text-color: #ffffff;
+}
+
+// Custom scrollbar for dark theme
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-dark-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-light-gray);
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--theme-cyan);
+  }
+}
+
+// Smooth transitions globally
+* {
+  scrollbar-color: #404040 #1a1a1a;
+  scrollbar-width: thin;
+}

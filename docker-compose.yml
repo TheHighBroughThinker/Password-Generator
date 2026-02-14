@@ -1,0 +1,13 @@
+services:
+  password-generator:
+    build: .
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NG_CLI_POLLING=1000
+      - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=1000
+    restart: unless-stopped
